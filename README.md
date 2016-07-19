@@ -9,13 +9,21 @@ So I created this script which will bring up master, node1 and node2, if you wis
 
 Steps:
 
+Clone this repo and bring up machines
+
+```bash
+$ git clone https://github.com/surajssd/latestkube
+$ cd latestkube
+$ vagrant up
+```
+
 On master:
 
 ```
 $ vagrant ssh master
 [vagrant@master ~]$ sudo -i
-[root@master ~]# cd /vagrant/blog/
-[root@master blog]# sh ./master.sh
+[root@master ~]# cd /vagrant/scripts/
+[root@master scripts]# sh ./master.sh
 ```
 
 
@@ -28,6 +36,7 @@ $ vagrant ssh node1
 Get IP address of `master` from other machine.
 ```
 [root@master ~]# export MASTER_IP=192.168.121.144
-[root@master ~]# cd /vagrant/blog/
-[root@master blog]# sh ./master.sh
+[root@master ~]# cd /vagrant/scripts/
+[root@master scripts]# sh ./node.sh
 ```
+
