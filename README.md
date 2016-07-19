@@ -1,13 +1,18 @@
 # latestkube
 
 This repo has scripts that bring up latest multi-node k8s on docker.
-So the docs of k8s when running k8s entirely on docker, they run everything from docker, so this causes problems and does not play well with interfaces. What this does differently is install etcd and flannel directly via package and configure them before and then bring up k8s in docker container. This is done because, required packages for running those services are available.
+So the docs of k8s when running k8s entirely on docker, they run everything from docker, so this causes problems and does not play well with interfaces.
+
+### What's different from canonical docs?
+
+This takes a hybrid approach, it installs `etcd` and `flannel` directly via package manager `dnf` and configure them before and then bring up k8s in docker container. This is done because, required packages for running those services are available and are latest. Even the manual setup doc asks to install same version of `etcd` and `flannel`.
+
+### Requirement:
 
 This script assumes that vagrant is installed. That's the only pre-requisite.
 
-So I created this script which will bring up master, node1 and node2, if you wish you can add more nodes to the Vagrantfile.
 
-Steps:
+### Steps:
 
 Clone this repo and bring up machines
 
@@ -17,7 +22,9 @@ $ cd latestkube
 $ vagrant up
 ```
 
-On master:
+This script will bring up 3 machines viz. `master`, `node1` and `node2`, if you wish you can add more nodes to the `Vagrantfile`.
+
+On `master` node only:
 
 ```
 $ vagrant ssh master
@@ -26,8 +33,7 @@ $ vagrant ssh master
 [root@master scripts]# sh ./master.sh
 ```
 
-
-On other nodes:
+On `nodes` follow following steps:
 ```
 $ vagrant ssh node1
 [vagrant@master ~]$ sudo -i
@@ -41,7 +47,7 @@ Get IP address of `master` from other machine.
 ```
 
 
-Ref:
+### Ref:
 
 - Run a single node k8s on docker http://kubernetes.io/docs/getting-started-guides/docker/
 - Run a multi-node k8s master on docker https://github.com/kubernetes/kubernetes.github.io/blob/master/docs/getting-started-guides/docker-multinode/master.md
