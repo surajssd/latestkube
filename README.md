@@ -40,3 +40,11 @@ Get IP address of `master` from other machine.
 [root@master scripts]# sh ./node.sh
 ```
 
+
+Ref:
+
+- Run a single node k8s on docker http://kubernetes.io/docs/getting-started-guides/docker/
+- Run a multi-node k8s master on docker https://github.com/kubernetes/kubernetes.github.io/blob/master/docs/getting-started-guides/docker-multinode/master.md
+- Run a multi-node k8s node on docker https://github.com/kubernetes/kubernetes.github.io/blob/master/docs/getting-started-guides/docker-multinode/worker.md
+- Setting up flannel https://deshmukhsuraj.wordpress.com/2016/02/29/flannel-demo/
+- SELINUX issue with k8s in docker https://deshmukhsuraj.wordpress.com/2016/06/01/running-kubernetes-in-container-on-fedoracentos/
